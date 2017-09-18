@@ -1,0 +1,22 @@
+{
+  "name": "meta-truffle-plugin",
+  "version": "1.0.0",
+  "description": "Truffle development plugin for meta",
+  "main": "index.js",
+  "bin": {
+    "meta-tc": "./bin/meta-tc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/trufflesuite/meta-truffle-plugin.git"
+  },
+  "author": "g. nicholas d'andrea <gnidan@trufflesuite.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trufflesuite/meta-truffle-plugin/issues"
+  },
+  "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme"
+}
