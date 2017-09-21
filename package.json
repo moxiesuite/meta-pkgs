@@ -19,12 +19,10 @@
     "url": "https://github.com/trufflesuite/meta-truffle-plugin/issues"
   },
   "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme",
-  "devDependencies": {
+  "dependencies": {
     "commander": "^2.11.0",
     "debug": "^3.0.1",
-    "get-meta-file": "0.0.5"
-  },
-  "dependencies": {
+    "get-meta-file": "0.0.5",
     "meta-exec": "0.0.7"
   }
 }
