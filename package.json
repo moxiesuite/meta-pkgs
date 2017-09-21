@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/trufflesuite/meta-truffle-plugin/issues"
   },
-  "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme"
+  "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme",
+  "devDependencies": {
+    "commander": "^2.11.0",
+    "debug": "^3.0.1",
+    "get-meta-file": "0.0.5"
+  },
+  "dependencies": {
+    "meta-exec": "0.0.7"
+  }
 }
