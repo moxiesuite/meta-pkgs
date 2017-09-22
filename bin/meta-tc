@@ -3,54 +3,9 @@ var process = require("process");
 var program = require("commander");
 
 var debug = require("debug")("meta-tc");
-var MetaCheckout = require("../lib/checkout");
 var runSync = require("../lib/runSync");
 
 program
-  .arguments('[term...]')
-  .option("-f, --fetch", "Fetch remotes before checkout")
-  .option("--strict", "Fail if a missing branch is requested")
-  .option("--greedy", "Search children even if parent is missing branch")
-  .action(function (terms) {
-    if (program.strict && program.greedy) {
-      console.error("Cannot use --strict with --gredy");
-      process.exit(1);
-    }
-
-    let checkout = new MetaCheckout(process.cwd(), {
-      logger: console,
-      fetch: program.fetch,
-      strict: program.strict,
-      greedy: program.greedy
-    });
-
-    try {
-      terms.forEach(function(term) {
-        checkout.specify(term);
-      });
-    } catch (e) {
-      console.error(e.message);
-      process.exit(1);
-    }
-
-    debug("checkout: %O", checkout);
-
-    var result = checkout.run();
-    result.catch(function(err) {
-      process.exit(1);
-    });
-  });
-
-program.on('--help', function(){
-  console.log('');
-  console.log('  Examples:');
-  console.log('');
-  console.log('    $ meta tc cool-package:develop');
-  console.log('    checkout branch `develop` for `cool-package` and dependencies');
-  console.log('');
-  console.log('    $ meta tc cool-package@develop');
-  console.log('    checkout branch `develop` for only `cool-package`');
-  console.log('');
-});
-
-program.parse(process.argv);
+  .command('checkout', "Checkout packages according to branch specs")
+  .command('test', "Run tests for subset of packages")
+  .parse(process.argv);

@@ -1,0 +1,60 @@
+#!/usr/bin/env node
+var process = require("process");
+var program = require("commander");
+
+var debug = require("debug")("meta-tc-checkout");
+var MetaCheckout = require("../lib/checkout");
+var runSync = require("../lib/runSync");
+
+program
+  .arguments('[term...]')
+  .option("-f, --fetch", "Fetch remotes before checkout")
+  .option("--strict", "Fail if a missing branch is requested")
+  .option("--greedy", "Search children even if parent is missing branch")
+  .action(function (terms) {
+    if (program.strict && program.greedy) {
+      console.error("Cannot use --strict with --gredy");
+      process.exit(1);
+    }
+
+    let checkout = new MetaCheckout(process.cwd(), {
+      logger: console,
+      fetch: program.fetch,
+      strict: program.strict,
+      greedy: program.greedy
+    });
+
+    var chain = Promise.resolve();
+    terms.forEach(function(term) {
+      chain = chain.then(function() {
+        return checkout.specify(term);
+      });
+    });
+
+    chain
+      .catch(function(err) {
+        console.error(err.message);
+        process.exit(1);
+      })
+      .then(function() {
+        return checkout.run();
+      })
+      .catch(function(err) {
+        console.error(err);
+        process.exit(1);
+      });
+  });
+
+program.on('--help', function(){
+  console.log('');
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ meta tc cool-package:develop');
+  console.log('    checkout branch `develop` for `cool-package` and dependencies');
+  console.log('');
+  console.log('    $ meta tc cool-package@develop');
+  console.log('    checkout branch `develop` for only `cool-package`');
+  console.log('');
+});
+
+program.parse(process.argv);

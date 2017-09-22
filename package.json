@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme",
   "dependencies": {
+    "chalk": "^2.1.0",
     "commander": "^2.11.0",
     "debug": "^3.0.1",
     "get-meta-file": "0.0.5",
