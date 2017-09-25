@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+var chalk = require("chalk");
+var process = require("process");
+var program = require("commander");
+
+var debug = require("debug")("tc-test");
+var Tests = require("../lib/tests");
+
+program
+  .arguments("[arg...]")
+  .usage("[options] <parents...> :: <children...>")
+  .option(
+    "-S, --strict <excludes>", "Exclude `parents`, `children`, `both`",
+    /^(parents|children|both|none)$/i, 'none'
+  )
+  .action(function (args) {
+
+    var tests = new Tests(process.cwd(), {
+      logger: console,
+      strictParents: program.strict == "parents" || program.strict == "both",
+      strictChildren: program.strict == "children" || program.strict == "both"
+    });
+
+    tests.parseArgs(args)
+      .then(function({parents, children}) {
+        return tests.include(parents, children);
+      })
+      .catch(function(err) {
+        console.error(err);
+        process.exit(1);
+      })
+      .then(function() {
+        return tests.run();
+      })
+      .catch(function(err) {
+        console.log();
+        console.error(chalk.red("Error: ") + err.message);
+        process.exit(1);
+      });
+
+
+  })
+  .parse(process.argv);

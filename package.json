@@ -4,6 +4,8 @@
   "description": "Truffle development plugin for meta",
   "main": "index.js",
   "bin": {
+    "meta-tc-checkout": "./bin/meta-tc-checkout",
+    "meta-test": "./bin/meta-tc-test",
     "meta-tc": "./bin/meta-tc"
   },
   "scripts": {
