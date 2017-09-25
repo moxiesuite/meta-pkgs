@@ -24,6 +24,7 @@
     "commander": "^2.11.0",
     "debug": "^3.0.1",
     "get-meta-file": "0.0.5",
+    "lodash": "^4.17.4",
     "meta-exec": "0.0.7"
   }
 }
