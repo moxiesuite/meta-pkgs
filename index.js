@@ -1,4 +1,4 @@
 module.exports.register = (program) => {
   program
-    .command('tc', "truffle checkout");
+    .command('pkgs', "Manage packages");
 }

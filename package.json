@@ -1,12 +1,12 @@
 {
-  "name": "meta-truffle-plugin",
+  "name": "meta-pkgs",
   "version": "1.0.0",
-  "description": "Truffle development plugin for meta",
+  "description": "Package management plugin for meta",
   "main": "index.js",
   "bin": {
-    "meta-tc-checkout": "./bin/meta-tc-checkout",
-    "meta-test": "./bin/meta-tc-test",
-    "meta-tc": "./bin/meta-tc"
+    "meta-pkgs-checkout": "./bin/meta-pkgs-checkout",
+    "meta-pkgs-test": "./bin/meta-pkgs-test",
+    "meta-pkgs": "./bin/meta-pkgs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

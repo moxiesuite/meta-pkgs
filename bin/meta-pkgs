@@ -2,7 +2,7 @@
 var process = require("process");
 var program = require("commander");
 
-var debug = require("debug")("meta-tc");
+var debug = require("debug")("pkgs");
 var runSync = require("../lib/runSync");
 
 program

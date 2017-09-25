@@ -2,7 +2,7 @@
 var process = require("process");
 var program = require("commander");
 
-var debug = require("debug")("meta-tc-checkout");
+var debug = require("debug")("pkgs-checkout");
 var Checkouts = require("../lib/checkouts");
 var runSync = require("../lib/runSync");
 
