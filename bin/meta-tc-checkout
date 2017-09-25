@@ -3,7 +3,7 @@ var process = require("process");
 var program = require("commander");
 
 var debug = require("debug")("meta-tc-checkout");
-var MetaCheckout = require("../lib/checkout");
+var Checkouts = require("../lib/checkouts");
 var runSync = require("../lib/runSync");
 
 program
@@ -17,7 +17,7 @@ program
       process.exit(1);
     }
 
-    let checkout = new MetaCheckout(process.cwd(), {
+    let checkouts = new Checkouts(process.cwd(), {
       logger: console,
       fetch: program.fetch,
       strict: program.strict,
@@ -27,7 +27,7 @@ program
     var chain = Promise.resolve();
     terms.forEach(function(term) {
       chain = chain.then(function() {
-        return checkout.specify(term);
+        return checkouts.specify(term);
       });
     });
 
@@ -37,7 +37,7 @@ program
         process.exit(1);
       })
       .then(function() {
-        return checkout.run();
+        return checkouts.run();
       })
       .catch(function(err) {
         console.error(err);
