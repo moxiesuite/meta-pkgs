@@ -1,6 +1,6 @@
 {
   "name": "meta-pkgs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Package management plugin for meta",
   "main": "index.js",
   "bin": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/trufflesuite/meta-truffle-plugin.git"
+    "url": "git+ssh://git@github.com/trufflesuite/meta-pkgs.git"
   },
   "author": "g. nicholas d'andrea <gnidan@trufflesuite.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trufflesuite/meta-truffle-plugin/issues"
+    "url": "https://github.com/trufflesuite/meta-pkgs/issues"
   },
-  "homepage": "https://github.com/trufflesuite/meta-truffle-plugin#readme",
+  "homepage": "https://github.com/trufflesuite/meta-pkgs#readme",
   "dependencies": {
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
