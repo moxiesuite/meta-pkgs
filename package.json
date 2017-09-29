@@ -5,6 +5,7 @@
   "main": "index.js",
   "bin": {
     "meta-pkgs-checkout": "./bin/meta-pkgs-checkout",
+    "meta-pkgs-do": "./bin/meta-pkgs-do",
     "meta-pkgs-test": "./bin/meta-pkgs-test",
     "meta-pkgs": "./bin/meta-pkgs"
   },

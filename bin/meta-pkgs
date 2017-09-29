@@ -8,4 +8,5 @@ var runSync = require("../lib/runSync");
 program
   .command('checkout', "Checkout packages according to branch specs")
   .command('test', "Run tests for subset of packages")
+  .command('do', "Run a command in a given package's repo directory")
   .parse(process.argv);

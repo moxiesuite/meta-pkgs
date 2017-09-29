@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+var process = require("process");
+var program = require("commander");
+
+var debug = require("debug")("pkgs-do");
+var Packages = require("../lib/packages");
+
+program
+  .arguments('<pkg> [cmd...]')
+  .action(function (pkg, cmd) {
+    let packages = new Packages(process.cwd(), {
+      logger: console
+    });
+
+    cmd = cmd.join(' ');
+    debug("Running `%s` in %s", cmd, pkg);
+
+    packages.exec(pkg, cmd)
+      .catch(function(err) {
+        console.error(err);
+        process.exit(1);
+      });
+  });
+
+program.parse(process.argv);
