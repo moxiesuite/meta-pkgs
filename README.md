@@ -17,11 +17,11 @@ In a `meta` project (root repo):
 Usage
 -----
 
-Sub-command          | Description
--------------------- | -------------
-`meta pkgs do`       | Run a command for a given package
-`meta pkgs checkout` | Checkout specific branches for packages and dependencies
-`meta pkgs test`     | Run tests against a slice of the dependency graph
+Sub-command                                           | Description
+----------------------------------------------------- | -------------
+[`meta pkgs do`](#meta-pkgs-do-pkg-cmd)               | Run a command for a given package
+[`meta pkgs checkout`](#meta-pkgs-checkout-terms)     | Checkout specific branches for packages and dependencies
+[`meta pkgs test`](#meta-pkgs-test-parents--children) | Run tests against a slice of the dependency graph
 
 
 ### `meta pkgs do <pkg> <cmd>`
@@ -29,8 +29,7 @@ Sub-command          | Description
 Runs `<cmd>` in the repository directory for package `<pkg>`.
 
 
-`meta pkgs checkout <terms...>`
--------------------------------
+### `meta pkgs checkout <terms...>`
 
 Runs `git checkout` for packages/branches specified by terms.
 
@@ -57,8 +56,7 @@ Options:
       missing (default is to stop traversal)
 
 
-`meta pkgs test <parents...> :: <children...>`
-----------------------------------------------
+### `meta pkgs test <parents...> :: <children...>`
 
 Runs `npm test` for packages in dependency graph between parents and children.
 
