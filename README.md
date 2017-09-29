@@ -58,3 +58,9 @@ or `lib`.
 Options:
   - `--strict=<parents|children|both>` to omit specified parents, children, or
       both from testing (default runs tests for packages specified)
+
+
+`meta pkgs do <pkg> <cmd>`
+--------------------------
+
+Runs `<cmd>` in the repository directory for package `<pkg>`.
