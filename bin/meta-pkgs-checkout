@@ -4,7 +4,6 @@ var program = require("commander");
 
 var debug = require("debug")("pkgs-checkout");
 var Checkouts = require("../lib/checkouts");
-var runSync = require("../lib/runSync");
 
 program
   .arguments('[term...]')
