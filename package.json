@@ -1,6 +1,6 @@
 {
   "name": "meta-pkgs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Package management plugin for meta",
   "main": "index.js",
   "bin": {
