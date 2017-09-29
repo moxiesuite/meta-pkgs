@@ -1,8 +1,9 @@
 meta-pkgs
 =========
 
-Utility for specifying checkout and test operations on `npm` packages managed
-by [meta](https://github.com/mateodelnorte/meta).
+Plugin for [meta](https://github.com/mateodelnorte/meta).
+
+Utility functions for juggling parts of your packages' dependency graph.
 
 
 Installation
@@ -11,6 +12,21 @@ Installation
 In a `meta` project (root repo):
 
     $ npm install --save-dev meta-pkgs
+
+
+Usage
+-----
+
+Sub-command          | Description
+-------------------- | -------------
+`meta pkgs do`       | Run a command for a given package
+`meta pkgs checkout` | Checkout specific branches for packages and dependencies
+`meta pkgs test`     | Run tests against a slice of the dependency graph
+
+
+### `meta pkgs do <pkg> <cmd>`
+
+Runs `<cmd>` in the repository directory for package `<pkg>`.
 
 
 `meta pkgs checkout <terms...>`
@@ -60,7 +76,3 @@ Options:
       both from testing (default runs tests for packages specified)
 
 
-`meta pkgs do <pkg> <cmd>`
---------------------------
-
-Runs `<cmd>` in the repository directory for package `<pkg>`.
