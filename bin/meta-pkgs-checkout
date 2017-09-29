@@ -7,7 +7,6 @@ var Checkouts = require("../lib/checkouts");
 
 program
   .arguments('[term...]')
-  .option("-f, --fetch", "Fetch remotes before checkout")
   .option("--strict", "Fail if a missing branch is requested")
   .option("--greedy", "Search children even if parent is missing branch")
   .action(function (terms) {
@@ -18,7 +17,6 @@ program
 
     let checkouts = new Checkouts(process.cwd(), {
       logger: console,
-      fetch: program.fetch,
       strict: program.strict,
       greedy: program.greedy
     });
