@@ -1,5 +1,6 @@
 {
-  "name": "meta-pkgs",
+  "name": "@moxiesuite/meta-pkgs",
+  "namespace": "moxiesuite",
   "version": "0.2.0",
   "description": "Package management plugin for meta",
   "main": "index.js",
